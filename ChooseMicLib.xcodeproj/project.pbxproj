@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		844C2FA120206F9C00B66888 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844C2FA020206F9C00B66888 /* main.cpp */; };
+		844C2FA920206FC000B66888 /* switch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844C2FA720206FC000B66888 /* switch.cpp */; };
+		844C2FB820209CE300B66888 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844C2FB720209CE300B66888 /* CoreAudio.framework */; };
+		844C2FBA20209CEA00B66888 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844C2FB920209CEA00B66888 /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,10 @@
 /* Begin PBXFileReference section */
 		844C2F9D20206F9C00B66888 /* ChooseMicLib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChooseMicLib; sourceTree = BUILT_PRODUCTS_DIR; };
 		844C2FA020206F9C00B66888 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		844C2FA720206FC000B66888 /* switch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = switch.cpp; sourceTree = "<group>"; };
+		844C2FA820206FC000B66888 /* switch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = switch.hpp; sourceTree = "<group>"; };
+		844C2FB720209CE300B66888 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		844C2FB920209CEA00B66888 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844C2FBA20209CEA00B66888 /* CoreServices.framework in Frameworks */,
+				844C2FB820209CE300B66888 /* CoreAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +52,7 @@
 			children = (
 				844C2F9F20206F9C00B66888 /* ChooseMicLib */,
 				844C2F9E20206F9C00B66888 /* Products */,
+				844C2FB620209CE300B66888 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +68,19 @@
 			isa = PBXGroup;
 			children = (
 				844C2FA020206F9C00B66888 /* main.cpp */,
+				844C2FA720206FC000B66888 /* switch.cpp */,
+				844C2FA820206FC000B66888 /* switch.hpp */,
 			);
 			path = ChooseMicLib;
+			sourceTree = "<group>";
+		};
+		844C2FB620209CE300B66888 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				844C2FB920209CEA00B66888 /* CoreServices.framework */,
+				844C2FB720209CE300B66888 /* CoreAudio.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844C2FA120206F9C00B66888 /* main.cpp in Sources */,
+				844C2FA920206FC000B66888 /* switch.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
