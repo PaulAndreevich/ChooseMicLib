@@ -7,7 +7,7 @@
 //
 
 //#include "switchWrapHeader.h"
-#include "switch.hpp"
+#include "switch.h"
 
     /*char* ChooseMic::deviceTypeName(ASDeviceType device_type) {
         switch(device_type) {
@@ -16,7 +16,7 @@
         }
     };*/
 
-    AudioDeviceID ChooseMic::getCurrentlySelectedDeviceID() {
+    AudioDeviceID Switch::getCurrentlySelectedDeviceID() {
         ASDeviceType typeRequested = kAudioTypeInput;
         UInt32 propertySize;
         AudioDeviceID deviceID = kAudioDeviceUnknown;
@@ -32,9 +32,9 @@
         return deviceID;
     };
 
-    const char* ChooseMic::getCurrentInputDevice(){
+    const char* Switch::getCurrentInputDevice(){
         char tempdevicename2[256];
-        std::string tempdeviceName;
+        string tempdeviceName;
         currentDeviceID = getCurrentlySelectedDeviceID();
         getDeviceName(currentDeviceID, tempdevicename2);
         tempdeviceName = tempdevicename2;
@@ -43,13 +43,13 @@
 
 
 
-    void ChooseMic::getDeviceName(AudioDeviceID deviceID, char* deviceName) {
+    void Switch::getDeviceName(AudioDeviceID deviceID, char* deviceName) {
         UInt32 propertySize = 256;
         AudioDeviceGetProperty(deviceID, 0, false, kAudioDevicePropertyDeviceName, &propertySize, deviceName);
     };
 
 
-    bool ChooseMic::isAnInputDevice(AudioDeviceID deviceID) {
+    bool Switch::isAnInputDevice(AudioDeviceID deviceID) {
         UInt32 propertySize = 256;
         
         // if there are any input streams, then it is an input
@@ -59,7 +59,8 @@
         return false;
     };
 
-    void ChooseMic::findAllInputDevices(ASDeviceType typeRequested) {
+    void Switch::findAllInputDevices() {
+        ASDeviceType typeRequested = kAudioTypeInput;
         AudioDeviceID devID_array[64];
         UInt32 propertySize;
         char deviceName[256];
@@ -88,7 +89,7 @@
         }
     };
 
-    AudioDeviceID ChooseMic::getRequestedDeviceID(char *requestedDeviceName) {
+    AudioDeviceID Switch::getRequestedDeviceID(char *requestedDeviceName) {
         ASDeviceType typeRequested = kAudioTypeInput;
         //printf("InsideRequestedDevice\n");
         AudioDeviceID devID_array[64];
@@ -121,7 +122,7 @@
     };
 
 
-    void ChooseMic::setDevice(char *requestedDeviceName) {
+    void Switch::setDevice(char *requestedDeviceName) {
         AudioDeviceID newDeviceID = getRequestedDeviceID(requestedDeviceName);
         ASDeviceType typeRequested = kAudioTypeInput;
         UInt32 propertySize = sizeof(UInt32);
@@ -135,19 +136,19 @@
         
     };
     
-    const char* ChooseMic::value(){
+    const char* Switch::value(){
         return (*currentDevice).c_str();
     };
 
-    void ChooseMic::initializeDeviceIterator(){
+    void Switch::initializeDeviceIterator(){
         currentDevice = namesOfDevices.begin();
     };
     
-    void ChooseMic::advanceDeviceIterator(){
+    void Switch::advanceDeviceIterator(){
         advance(currentDevice,1);
     };
     
-    bool ChooseMic::iteratorEnded(){
+    bool Switch::iteratorEnded(){
         if (currentDevice == namesOfDevices.end())
             return true;
         return false;
