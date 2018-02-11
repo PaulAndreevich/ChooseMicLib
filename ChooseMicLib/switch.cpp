@@ -34,7 +34,6 @@
 
     const char* Switch::getCurrentInputDevice(){
         char tempdevicename2[256];
-        string tempdeviceName;
         currentDeviceID = getCurrentlySelectedDeviceID();
         getDeviceName(currentDeviceID, tempdevicename2);
         tempdeviceName = tempdevicename2;
@@ -55,11 +54,11 @@
         // if there are any input streams, then it is an input
         AudioDeviceGetPropertyInfo(deviceID, 0, true, kAudioDevicePropertyStreams, &propertySize, NULL);
         if (propertySize > 0) return kAudioTypeInput;
-        
         return false;
     };
 
     void Switch::findAllInputDevices() {
+        printf("In FIND\n");
         ASDeviceType typeRequested = kAudioTypeInput;
         AudioDeviceID devID_array[64];
         UInt32 propertySize;
@@ -70,7 +69,7 @@
         numberOfDevices = (propertySize / sizeof(AudioDeviceID));
         
         for(int i = 0; i < numberOfDevices; ++i) {
-            
+
             switch(typeRequested) {
                 case kAudioTypeInput:
                     if (!isAnInputDevice(devID_array[i])) continue;
