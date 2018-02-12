@@ -121,8 +121,8 @@
     };
 
 
-    void Switch::setDevice(char *requestedDeviceName) {
-        AudioDeviceID newDeviceID = getRequestedDeviceID(requestedDeviceName);
+    void Switch::setDevice(const char *requestedDeviceName) {
+        AudioDeviceID newDeviceID = getRequestedDeviceID((char*)requestedDeviceName);
         ASDeviceType typeRequested = kAudioTypeInput;
         UInt32 propertySize = sizeof(UInt32);
         
